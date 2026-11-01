@@ -1,0 +1,38 @@
+[
+  {
+    "checks": {
+      "contract_count": true,
+      "embed_sha256": true,
+      "git_commit": true,
+      "release_id": true,
+      "rule_count": true,
+      "runtime_sha256": true
+    },
+    "contract_count": 31,
+    "embed_sha256": "f609fcef44f946fa0030cd94d930615b248b288a433e4cbd6c6c6238425556b9",
+    "git_commit": null,
+    "release_id": "stroke-methodology-v1",
+    "repo_path": "targets/stroke",
+    "rule_count": 14,
+    "runtime_sha256": "2b8d32bc159e9aca33c71dd55c5b25cdc70877afab1b93908ff55c876c8594c2",
+    "target": "stroke"
+  },
+  {
+    "checks": {
+      "contract_count": true,
+      "embed_sha256": true,
+      "git_commit": true,
+      "release_id": true,
+      "rule_count": true,
+      "runtime_sha256": true
+    },
+    "contract_count": 33,
+    "embed_sha256": "82deabd9d0f9d20d88373c25f97596fa56238e59903f039f1d0c7e84a1a8cf08",
+    "git_commit": null,
+    "release_id": "lung-methodology-v1",
+    "repo_path": "targets/lung",
+    "rule_count": 16,
+    "runtime_sha256": "2b8d32bc159e9aca33c71dd55c5b25cdc70877afab1b93908ff55c876c8594c2",
+    "target": "lung"
+  }
+]

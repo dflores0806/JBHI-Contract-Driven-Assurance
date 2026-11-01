@@ -1,0 +1,1352 @@
+{
+  "catalogue_version": "methodology-v1",
+  "contracts": [
+    {
+      "id": "case_id",
+      "semantics": "Built-in respiratory case identifier",
+      "encoding": {
+        "type": "string",
+        "pattern": "^LTM-[0-9]{3}$"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "276-389"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "age_years",
+      "semantics": "Age of the fictional patient",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": "years",
+      "admissible_domain": {
+        "min": 18,
+        "max": null,
+        "basis": "randomizer enforces minimum only"
+      },
+      "source": {
+        "type": "case_database_randomized"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "397-414"
+      },
+      "implementation_gap": "No explicit upper admissible age is encoded.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "sex",
+      "semantics": "Sex label used by the fictional case",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "Female",
+          "Male"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "276-389"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "respiratory_scenario",
+      "semantics": "Active physiological preset",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "normal",
+          "asthma",
+          "copd",
+          "restrictive",
+          "pneumonia",
+          "embolism",
+          "ards"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "171-183,265-273"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "respiratory_rate",
+      "semantics": "Respiratory rate",
+      "encoding": {
+        "type": "integer",
+        "step": 1
+      },
+      "unit": "breaths/min",
+      "admissible_domain": {
+        "min": 6,
+        "max": 40,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "rr"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "tidal_volume",
+      "semantics": "Tidal volume",
+      "encoding": {
+        "type": "integer",
+        "step": 10
+      },
+      "unit": "mL",
+      "admissible_domain": {
+        "min": 150,
+        "max": 900,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "vt"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "fev1",
+      "semantics": "Forced expiratory volume in 1 second",
+      "encoding": {
+        "type": "number",
+        "step": 0.1
+      },
+      "unit": "L",
+      "admissible_domain": {
+        "min": 0.3,
+        "max": 5.0,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": "P-LUNG-FEV1-BASELINE",
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "fev1"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "fvc",
+      "semantics": "Forced vital capacity",
+      "encoding": {
+        "type": "number",
+        "step": 0.1
+      },
+      "unit": "L",
+      "admissible_domain": {
+        "min": 0.5,
+        "max": 6.0,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "fvc"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "peak_expiratory_flow",
+      "semantics": "Peak expiratory flow",
+      "encoding": {
+        "type": "integer",
+        "step": 10
+      },
+      "unit": "L/min",
+      "admissible_domain": {
+        "min": 80,
+        "max": 750,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "pef"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "airway_resistance",
+      "semantics": "Prototype airway-resistance control",
+      "encoding": {
+        "type": "integer",
+        "step": 1
+      },
+      "unit": "%",
+      "admissible_domain": {
+        "min": 0,
+        "max": 100,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "resistance"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "compliance",
+      "semantics": "Prototype lung-compliance control",
+      "encoding": {
+        "type": "integer",
+        "step": 1
+      },
+      "unit": "%",
+      "admissible_domain": {
+        "min": 10,
+        "max": 100,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "compliance"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "spo2",
+      "semantics": "Peripheral oxygen saturation",
+      "encoding": {
+        "type": "integer",
+        "step": 1
+      },
+      "unit": "%",
+      "admissible_domain": {
+        "min": 70,
+        "max": 100,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": "P-LUNG-SPO2-BASELINE",
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "spo2"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "pao2",
+      "semantics": "Arterial oxygen partial pressure",
+      "encoding": {
+        "type": "integer",
+        "step": 1
+      },
+      "unit": "mmHg",
+      "admissible_domain": {
+        "min": 35,
+        "max": 120,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "pao2"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "paco2",
+      "semantics": "Arterial carbon-dioxide partial pressure",
+      "encoding": {
+        "type": "integer",
+        "step": 1
+      },
+      "unit": "mmHg",
+      "admissible_domain": {
+        "min": 20,
+        "max": 80,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "paco2"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "vq_ratio",
+      "semantics": "Ventilation/perfusion ratio",
+      "encoding": {
+        "type": "number",
+        "step": 0.1
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0.1,
+        "max": 3.0,
+        "basis": "HTML range control"
+      },
+      "source": {
+        "type": "user_interaction_or_case_preset"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "mutable_runtime_state"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "188-214",
+        "html_id": "vq"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction",
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "fev1_fvc_ratio",
+      "semantics": "Derived FEV1/FVC ratio",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "derived_from_state"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "mandatory",
+      "dependencies": [
+        "fev1",
+        "fvc"
+      ],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "560-572"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "minute_ventilation",
+      "semantics": "Derived minute ventilation",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": "L/min",
+      "admissible_domain": null,
+      "source": {
+        "type": "derived_from_state"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "mandatory",
+      "dependencies": [
+        "respiratory_rate",
+        "tidal_volume"
+      ],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "560-572"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "work_of_breathing_index",
+      "semantics": "Educational work-of-breathing index",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0,
+        "max": 100,
+        "basis": "Math.min(100,...) in derived()"
+      },
+      "source": {
+        "type": "derived_from_state"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "mandatory",
+      "dependencies": [
+        "airway_resistance",
+        "compliance",
+        "respiratory_rate"
+      ],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "570"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "learner_diagnosis",
+      "semantics": "Diagnosis selected by the learner",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "normal",
+          "asthma",
+          "copd",
+          "pneumonia",
+          "embolism",
+          "ards",
+          "restrictive",
+          "heart_failure",
+          "pneumothorax"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "116-128"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "learner_management",
+      "semantics": "Immediate management selected by the learner",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "observe",
+          "bronchodilator_steroids",
+          "niv_bronchodilator",
+          "antibiotics_oxygen",
+          "anticoag_ctpa",
+          "ards_bundle",
+          "rehab_fibrosis",
+          "decompression"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "130-142"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_oxygen",
+      "semantics": "Oxygenation/ABG assessment selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "147"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_cxr",
+      "semantics": "Chest imaging selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "148"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_spiro",
+      "semantics": "Peak-flow/spirometry assessment selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "149"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_infection",
+      "semantics": "Infection work-up selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "150"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_ctpa",
+      "semantics": "PE imaging pathway selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "151"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_icu",
+      "semantics": "ICU/ventilatory escalation selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "152"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "educational_classification",
+      "semantics": "Case-associated educational model classification",
+      "encoding": {
+        "type": "string"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "computational_output",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "276-389,517"
+      },
+      "implementation_gap": "The repository labels this as simulated; no inference model execution is implemented.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "educational_confidence",
+      "semantics": "Simulated case confidence",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0,
+        "max": 1,
+        "basis": "stored case confidence values"
+      },
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "computational_output",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "276-389,517"
+      },
+      "implementation_gap": "Confidence is case metadata, not model uncertainty.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "decision_score",
+      "semantics": "Educational score after decision checking",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0,
+        "max": 100,
+        "basis": "explicit clamp in scoring code"
+      },
+      "source": {
+        "type": "derived_from_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "feedback_output",
+      "requirement": "mandatory",
+      "dependencies": [
+        "learner_diagnosis",
+        "learner_management"
+      ],
+      "provenance": {
+        "file": "LungTwinMentor.html",
+        "lines": "471-517"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived_from_interaction"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "baseline_spo2",
+      "semantics": "User-specified personal baseline SpO2 for educational comparison",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": "%",
+      "admissible_domain": {
+        "min": 70,
+        "max": 100,
+        "basis": "same UI domain as SpO2"
+      },
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_applicable_manual_context"
+      },
+      "temporal": {
+        "behavior": "session_context"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "optional",
+      "dependencies": [],
+      "provenance": {
+        "type": "methodology_extension",
+        "purpose": "Phase-4 baseline personalization without clinical normality claim"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "baseline_fev1",
+      "semantics": "User-specified personal baseline FEV1 for educational comparison",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": "L",
+      "admissible_domain": {
+        "min": 0.3,
+        "max": 5.0,
+        "basis": "same UI domain as FEV1"
+      },
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_applicable_manual_context"
+      },
+      "temporal": {
+        "behavior": "session_context"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "optional",
+      "dependencies": [],
+      "provenance": {
+        "type": "methodology_extension",
+        "purpose": "Phase-4 baseline personalization without clinical normality claim"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "spo2_baseline_delta",
+      "semantics": "Difference between current SpO2 and the user-specified personal baseline",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": "percentage points",
+      "admissible_domain": null,
+      "source": {
+        "type": "derived_from_state"
+      },
+      "quality": {
+        "policy": "derived"
+      },
+      "temporal": {
+        "behavior": "derived"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "conditional",
+      "dependencies": [
+        "spo2",
+        "baseline_spo2"
+      ],
+      "provenance": {
+        "type": "methodology_extension",
+        "personalization": "P-LUNG-SPO2-BASELINE"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "dependency_recompute",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "fev1_baseline_percent_change",
+      "semantics": "Percentage change of current FEV1 relative to the user-specified personal baseline",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": "%",
+      "admissible_domain": null,
+      "source": {
+        "type": "derived_from_state"
+      },
+      "quality": {
+        "policy": "derived"
+      },
+      "temporal": {
+        "behavior": "derived"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "conditional",
+      "dependencies": [
+        "fev1",
+        "baseline_fev1"
+      ],
+      "provenance": {
+        "type": "methodology_extension",
+        "personalization": "P-LUNG-FEV1-BASELINE"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "dependency_recompute",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    }
+  ]
+}

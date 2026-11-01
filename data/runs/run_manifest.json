@@ -1,0 +1,31 @@
+{
+  "executed_utc": "2026-11-01T17:04:35.335399+00:00",
+  "node_version": "v22.16.0",
+  "oracle_sha256": "acc0ffca5d1939de97672792e51f3bc187c716361b439b9a2393dce22e91fda5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python_version": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "study_id": "JBHI-CONTRACT-DRIVEN-ASSURANCE",
+  "system_outputs_sha256": "799955343837223e40bc7b9525b4a3f27b4bbef0dd55cef05b5875d9674adc2a",
+  "targets": {
+    "lung": {
+      "contracts_sha256": "b247eca2e8157345f237953f7ee46f119d6266677f594f30a4bc40c62892fdf9",
+      "embed_sha256": "82deabd9d0f9d20d88373c25f97596fa56238e59903f039f1d0c7e84a1a8cf08",
+      "git_commit": null,
+      "release_sha256": "3591cec5f54119d5bbc1c842670b5cb3d562dd736cc8a22f306ae27c8e185b94",
+      "repo_path": "targets/lung",
+      "rules_sha256": "2725d636d410899df54e799b288f0fb28513be5313db64910085a6cb8ac6ff71",
+      "runtime_sha256": "2b8d32bc159e9aca33c71dd55c5b25cdc70877afab1b93908ff55c876c8594c2",
+      "source_commit": "8b9e284fe4fd98ef5304b56316d393e62918709b"
+    },
+    "stroke": {
+      "contracts_sha256": "71d7753b02d7cc6c1144e71be4031ddfab9e027c4cbb5e91fbceabddb2b26be1",
+      "embed_sha256": "f609fcef44f946fa0030cd94d930615b248b288a433e4cbd6c6c6238425556b9",
+      "git_commit": null,
+      "release_sha256": "3c5b5441b0f7cf672cf0dbba9609b1f4c41cb9021d794dc3b7f58c3e413c5099",
+      "repo_path": "targets/stroke",
+      "rules_sha256": "9601a2f250a0a1d10842ce2584cafed65098d64985986645d65b9722071c2710",
+      "runtime_sha256": "2b8d32bc159e9aca33c71dd55c5b25cdc70877afab1b93908ff55c876c8594c2",
+      "source_commit": "f5d1a040a3270310cdc2ebc8dd78765917859677"
+    }
+  }
+}

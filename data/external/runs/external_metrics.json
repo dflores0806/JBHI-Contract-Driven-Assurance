@@ -1,0 +1,49 @@
+{
+  "lung_external": {
+    "available": true,
+    "contract_fev1": {
+      "n": 3945,
+      "accepted": 3855,
+      "coverage": 0.9771863117870723,
+      "status_counts": {
+        "accepted": 3855,
+        "rejected": 90
+      }
+    },
+    "contract_fvc": {
+      "n": 3945,
+      "accepted": 3804,
+      "coverage": 0.9642585551330799,
+      "status_counts": {
+        "accepted": 3804,
+        "rejected": 141
+      }
+    },
+    "contract_peak_expiratory_flow": {
+      "n": 3945,
+      "accepted": 3844,
+      "coverage": 0.9743979721166033,
+      "status_counts": {
+        "accepted": 3844,
+        "rejected": 101
+      }
+    },
+    "obstructive_rule_state_counts": {
+      "unknown": 3352,
+      "true": 593
+    },
+    "exploratory_bronchodilator_selection": {
+      "n": 3945,
+      "nhanes_eligible": 575,
+      "runtime_true": 593,
+      "runtime_unknown": 3352
+    },
+    "personalization": {
+      "n": 276,
+      "numeric_outputs": 274,
+      "within_0_001_pp": 274,
+      "max_abs_error_pp": 0.0004979768006441176,
+      "mean_abs_error_pp": 0.0002344916571100305
+    }
+  }
+}

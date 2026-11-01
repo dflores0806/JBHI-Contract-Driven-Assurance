@@ -1,0 +1,21 @@
+{
+  "paper_title": "Contract-Driven Assurance and Runtime Verification of Health Digital Twins",
+  "paper": {
+    "main_tex_sha256": "069911e1792c2bdbd56edffd6473e46a136cb80b8d421509e33e723061a815d6",
+    "pdf_sha256": "1849eab4aef6075e62c143ae480543b21827f6a27beb6af8582ec8f24dd914c3",
+    "pages": 8,
+    "cited_references": 31,
+    "figure_2": "retained with synthetic clinical context images and actual prototype interfaces"
+  },
+  "target_sources": {
+    "StrokeTwinMentor": {
+      "commit": "f5d1a040a3270310cdc2ebc8dd78765917859677"
+    },
+    "LungTwinMentor": {
+      "commit": "8b9e284fe4fd98ef5304b56316d393e62918709b"
+    }
+  },
+  "oracle_sha256": "acc0ffca5d1939de97672792e51f3bc187c716361b439b9a2393dce22e91fda5",
+  "results_manifest_sha256": "d76253d81261cfec27ee8e1eb686f8f53b5116a8ae1d909a41031851f2e6feba",
+  "claim_boundary": "Engineering conformance, cross-implementation consistency, I1-I3 controls, seeded release mechanics, and NHANES specification stress replay; not clinical validation or author-independent validation."
+}

@@ -1,0 +1,173 @@
+{
+  "study": "seeded_release_evolution_dependency_closure",
+  "corpus_n": 80,
+  "candidate_releases": 5,
+  "seeded_artifact_changes": 11,
+  "total_observed_behavior_changes": 11,
+  "captured_behavior_changes": 11,
+  "missed_behavior_changes": 0,
+  "selected_tests_total": 38,
+  "full_regression_tests_total": 400,
+  "mean_selected_tests": 7.6,
+  "median_selected_tests": 6,
+  "mean_regression_reduction_pct": 90.5,
+  "results": [
+    {
+      "release": "REL-A Lung admission update",
+      "seeded_changes": [
+        "RR maximum 40->39",
+        "SpO2 minimum 70->71",
+        "LU-S003 SpO2 threshold 90->88"
+      ],
+      "changed_artifacts": [
+        "contract:lung:respiratory_rate",
+        "contract:lung:spo2",
+        "rule:lung:LU-S003"
+      ],
+      "selected_n": 17,
+      "full_suite_n": 80,
+      "behavior_changes_n": 3,
+      "behavior_changes": [
+        "LU-IND-009",
+        "LU-IND-018",
+        "LU-IND-021"
+      ],
+      "selected_cases": [
+        "LU-IND-001",
+        "LU-IND-004",
+        "LU-IND-009",
+        "LU-IND-015",
+        "LU-IND-017",
+        "LU-IND-018",
+        "LU-IND-019",
+        "LU-IND-020",
+        "LU-IND-021",
+        "LU-IND-022",
+        "LU-IND-023",
+        "LU-IND-024",
+        "LU-IND-025",
+        "LU-IND-028",
+        "LU-IND-030",
+        "LU-IND-031",
+        "LU-IND-032"
+      ],
+      "missed_changes": [],
+      "conservative_extra_n": 14,
+      "reduction_pct": 78.8
+    },
+    {
+      "release": "REL-B Stroke boundary update",
+      "seeded_changes": [
+        "Perfusion maximum 100->99",
+        "Decision-time maximum 180->179",
+        "ST-S002 upper NIHSS 4->3"
+      ],
+      "changed_artifacts": [
+        "contract:stroke:perfusion_percent",
+        "contract:stroke:decision_time_seconds",
+        "rule:stroke:ST-S002"
+      ],
+      "selected_n": 10,
+      "full_suite_n": 80,
+      "behavior_changes_n": 3,
+      "behavior_changes": [
+        "ST-IND-010",
+        "ST-IND-018",
+        "ST-IND-022"
+      ],
+      "selected_cases": [
+        "ST-IND-006",
+        "ST-IND-008",
+        "ST-IND-010",
+        "ST-IND-017",
+        "ST-IND-018",
+        "ST-IND-019",
+        "ST-IND-020",
+        "ST-IND-021",
+        "ST-IND-022",
+        "ST-IND-037"
+      ],
+      "missed_changes": [],
+      "conservative_extra_n": 7,
+      "reduction_pct": 87.5
+    },
+    {
+      "release": "REL-C Stroke reasoning update",
+      "seeded_changes": [
+        "ST-S004 upper NIHSS 20->17",
+        "ST-H001 removes ivt_evt branch"
+      ],
+      "changed_artifacts": [
+        "rule:stroke:ST-S004",
+        "rule:stroke:ST-H001"
+      ],
+      "selected_n": 6,
+      "full_suite_n": 80,
+      "behavior_changes_n": 2,
+      "behavior_changes": [
+        "ST-IND-012",
+        "ST-IND-033"
+      ],
+      "selected_cases": [
+        "ST-IND-012",
+        "ST-IND-014",
+        "ST-IND-030",
+        "ST-IND-033",
+        "ST-IND-034",
+        "ST-IND-040"
+      ],
+      "missed_changes": [],
+      "conservative_extra_n": 4,
+      "reduction_pct": 92.5
+    },
+    {
+      "release": "REL-D Lung interpretation/personalization",
+      "seeded_changes": [
+        "LU-S001 ratio threshold 0.70->0.50",
+        "SpO2 delta direction change"
+      ],
+      "changed_artifacts": [
+        "rule:lung:LU-S001",
+        "personalization:lung:spo2_delta"
+      ],
+      "selected_n": 4,
+      "full_suite_n": 80,
+      "behavior_changes_n": 2,
+      "behavior_changes": [
+        "LU-IND-007",
+        "LU-IND-015"
+      ],
+      "selected_cases": [
+        "LU-IND-007",
+        "LU-IND-015",
+        "LU-IND-030",
+        "LU-IND-037"
+      ],
+      "missed_changes": [],
+      "conservative_extra_n": 2,
+      "reduction_pct": 95.0
+    },
+    {
+      "release": "REL-E Lung FEV1 personalization",
+      "seeded_changes": [
+        "FEV1 denominator baseline->current"
+      ],
+      "changed_artifacts": [
+        "personalization:lung:fev1_percent"
+      ],
+      "selected_n": 1,
+      "full_suite_n": 80,
+      "behavior_changes_n": 1,
+      "behavior_changes": [
+        "LU-IND-016"
+      ],
+      "selected_cases": [
+        "LU-IND-016"
+      ],
+      "missed_changes": [],
+      "conservative_extra_n": 0,
+      "reduction_pct": 98.8
+    }
+  ],
+  "scope_note": "Seeded artifact changes over the frozen 80-case post-freeze corpus; demonstrates regression-scope mechanics, not empirical defect rates or clinical release history."
+}

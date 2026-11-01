@@ -1,0 +1,6 @@
+# Bundled frozen artifact snapshots used for the 80-case cross-implementation execution.
+targets:
+  stroke:
+    repo_path: targets/stroke
+  lung:
+    repo_path: targets/lung

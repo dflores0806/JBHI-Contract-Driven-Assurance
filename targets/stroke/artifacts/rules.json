@@ -1,0 +1,495 @@
+{
+  "knowledge_version": "methodology-v1",
+  "rules": [
+    {
+      "id": "ST-H001",
+      "type": "hard",
+      "category": "safety_constraint",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "case_type",
+            "value": "hemorrhagic"
+          },
+          {
+            "op": "in",
+            "field": "learner_management",
+            "values": [
+              "ivt",
+              "ivt_evt"
+            ]
+          }
+        ]
+      },
+      "consequence": {
+        "output_policy": "blocked",
+        "reason": "fibrinolysis_in_hemorrhagic_case",
+        "tag": "DANGER: fibrinolysis in hemorrhage"
+      },
+      "priority": 1,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_derived_extension",
+        "source": "StrokeTwinMentor.html",
+        "source_behavior": "existing -20 safety penalty and DANGER tag",
+        "methodology_change": "promoted to non-overridable management-pathway block"
+      },
+      "references": [
+        "case_type",
+        "learner_management"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S001",
+      "type": "soft",
+      "category": "state_interpretation",
+      "condition": {
+        "op": "eq",
+        "field": "nihss",
+        "value": 0
+      },
+      "consequence": {
+        "nihss_severity": "No deficit"
+      },
+      "priority": 1,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "severity"
+      },
+      "references": [
+        "nihss"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S002",
+      "type": "soft",
+      "category": "state_interpretation",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "gt",
+            "field": "nihss",
+            "value": 0
+          },
+          {
+            "op": "lte",
+            "field": "nihss",
+            "value": 4
+          }
+        ]
+      },
+      "consequence": {
+        "nihss_severity": "Mild"
+      },
+      "priority": 2,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "severity"
+      },
+      "references": [
+        "nihss"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S003",
+      "type": "soft",
+      "category": "state_interpretation",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "gt",
+            "field": "nihss",
+            "value": 4
+          },
+          {
+            "op": "lte",
+            "field": "nihss",
+            "value": 15
+          }
+        ]
+      },
+      "consequence": {
+        "nihss_severity": "Moderate"
+      },
+      "priority": 3,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "severity"
+      },
+      "references": [
+        "nihss"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S004",
+      "type": "soft",
+      "category": "state_interpretation",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "gt",
+            "field": "nihss",
+            "value": 15
+          },
+          {
+            "op": "lte",
+            "field": "nihss",
+            "value": 20
+          }
+        ]
+      },
+      "consequence": {
+        "nihss_severity": "Moderate-severe"
+      },
+      "priority": 4,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "severity"
+      },
+      "references": [
+        "nihss"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S005",
+      "type": "soft",
+      "category": "state_interpretation",
+      "condition": {
+        "op": "gt",
+        "field": "nihss",
+        "value": 20
+      },
+      "consequence": {
+        "nihss_severity": "Severe"
+      },
+      "priority": 5,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "severity"
+      },
+      "references": [
+        "nihss"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S006",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "expected_action_ct",
+            "value": true
+          },
+          {
+            "op": "eq",
+            "field": "action_ct",
+            "value": false
+          }
+        ]
+      },
+      "consequence": {
+        "tag": "Missing urgent CT",
+        "tag_class": "bad"
+      },
+      "priority": 10,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "checkAnswer"
+      },
+      "references": [
+        "expected_action_ct",
+        "action_ct"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S007",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "expected_action_cta",
+            "value": true
+          },
+          {
+            "op": "eq",
+            "field": "action_cta",
+            "value": false
+          }
+        ]
+      },
+      "consequence": {
+        "tag": "Missing vascular/perfusion imaging",
+        "tag_class": "bad"
+      },
+      "priority": 11,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "checkAnswer"
+      },
+      "references": [
+        "expected_action_cta",
+        "action_cta"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S008",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "expected_action_bp",
+            "value": true
+          },
+          {
+            "op": "eq",
+            "field": "action_bp",
+            "value": false
+          }
+        ]
+      },
+      "consequence": {
+        "tag": "Missing systemic control",
+        "tag_class": "bad"
+      },
+      "priority": 12,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "checkAnswer"
+      },
+      "references": [
+        "expected_action_bp",
+        "action_bp"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S009",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "expected_action_ecg",
+            "value": true
+          },
+          {
+            "op": "eq",
+            "field": "action_ecg",
+            "value": false
+          }
+        ]
+      },
+      "consequence": {
+        "tag": "Missing ECG / telemetry",
+        "tag_class": "warn"
+      },
+      "priority": 13,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "checkAnswer"
+      },
+      "references": [
+        "expected_action_ecg",
+        "action_ecg"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S010",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "expected_action_neuro",
+            "value": true
+          },
+          {
+            "op": "eq",
+            "field": "action_neuro",
+            "value": false
+          }
+        ]
+      },
+      "consequence": {
+        "tag": "Missing urgent neurovascular assessment",
+        "tag_class": "warn"
+      },
+      "priority": 14,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "checkAnswer"
+      },
+      "references": [
+        "expected_action_neuro",
+        "action_neuro"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S011",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "eq_field",
+        "field": "learner_diagnosis",
+        "other": "expected_diagnosis"
+      },
+      "consequence": {
+        "tag": "Correct diagnosis",
+        "tag_class": "ok"
+      },
+      "priority": 20,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "checkAnswer"
+      },
+      "references": [
+        "learner_diagnosis",
+        "expected_diagnosis"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S012",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "case_type",
+            "value": "ischemic"
+          },
+          {
+            "op": "in",
+            "field": "learner_diagnosis",
+            "values": [
+              "ais_lvo",
+              "ais_lacunar",
+              "ais_cardioembolic",
+              "posterior_bao",
+              "tia"
+            ]
+          },
+          {
+            "op": "neq_field",
+            "field": "learner_diagnosis",
+            "other": "expected_diagnosis"
+          }
+        ]
+      },
+      "consequence": {
+        "tag": "Correct ischemic type, wrong subtype",
+        "tag_class": "warn"
+      },
+      "priority": 21,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "checkAnswer"
+      },
+      "references": [
+        "case_type",
+        "learner_diagnosis",
+        "expected_diagnosis"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "ST-S013",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "case_type",
+            "value": "hemorrhagic"
+          },
+          {
+            "op": "in",
+            "field": "learner_diagnosis",
+            "values": [
+              "ich",
+              "sah"
+            ]
+          },
+          {
+            "op": "neq_field",
+            "field": "learner_diagnosis",
+            "other": "expected_diagnosis"
+          }
+        ]
+      },
+      "consequence": {
+        "tag": "Hemorrhage recognized, wrong subtype",
+        "tag_class": "warn"
+      },
+      "priority": 22,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "StrokeTwinMentor.html",
+        "function": "checkAnswer"
+      },
+      "references": [
+        "case_type",
+        "learner_diagnosis",
+        "expected_diagnosis"
+      ],
+      "unknown_applicable": true
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "study": "dependency_incompleteness_sensitivity",
+  "critical_dependency_candidates": 11,
+  "levels": [
+    {
+      "omitted_dependency_links": 0,
+      "omitted": [],
+      "changed_behavior_instances": 11,
+      "captured_instances": 11,
+      "missed_instances": 0,
+      "recall": 1.0,
+      "mean_selected_tests": 7.6,
+      "per_release": [
+        {
+          "release": "REL-A Lung admission update",
+          "changed_n": 3,
+          "selected_n": 17,
+          "captured_n": 3,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-B Stroke boundary update",
+          "changed_n": 3,
+          "selected_n": 10,
+          "captured_n": 3,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-C Stroke reasoning update",
+          "changed_n": 2,
+          "selected_n": 6,
+          "captured_n": 2,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-D Lung interpretation/personalization",
+          "changed_n": 2,
+          "selected_n": 4,
+          "captured_n": 2,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-E Lung FEV1 personalization",
+          "changed_n": 1,
+          "selected_n": 1,
+          "captured_n": 1,
+          "missed_n": 0,
+          "missed_cases": []
+        }
+      ]
+    },
+    {
+      "omitted_dependency_links": 1,
+      "omitted": [
+        {
+          "artifact": "contract:lung:respiratory_rate",
+          "affected_cases": [
+            "LU-IND-018"
+          ]
+        }
+      ],
+      "changed_behavior_instances": 11,
+      "captured_instances": 10,
+      "missed_instances": 1,
+      "recall": 0.9091,
+      "mean_selected_tests": 7.4,
+      "per_release": [
+        {
+          "release": "REL-A Lung admission update",
+          "changed_n": 3,
+          "selected_n": 16,
+          "captured_n": 2,
+          "missed_n": 1,
+          "missed_cases": [
+            "LU-IND-018"
+          ]
+        },
+        {
+          "release": "REL-B Stroke boundary update",
+          "changed_n": 3,
+          "selected_n": 10,
+          "captured_n": 3,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-C Stroke reasoning update",
+          "changed_n": 2,
+          "selected_n": 6,
+          "captured_n": 2,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-D Lung interpretation/personalization",
+          "changed_n": 2,
+          "selected_n": 4,
+          "captured_n": 2,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-E Lung FEV1 personalization",
+          "changed_n": 1,
+          "selected_n": 1,
+          "captured_n": 1,
+          "missed_n": 0,
+          "missed_cases": []
+        }
+      ]
+    },
+    {
+      "omitted_dependency_links": 2,
+      "omitted": [
+        {
+          "artifact": "contract:lung:respiratory_rate",
+          "affected_cases": [
+            "LU-IND-018"
+          ]
+        },
+        {
+          "artifact": "contract:lung:spo2",
+          "affected_cases": [
+            "LU-IND-009",
+            "LU-IND-021"
+          ]
+        }
+      ],
+      "changed_behavior_instances": 11,
+      "captured_instances": 9,
+      "missed_instances": 2,
+      "recall": 0.8182,
+      "mean_selected_tests": 7.2,
+      "per_release": [
+        {
+          "release": "REL-A Lung admission update",
+          "changed_n": 3,
+          "selected_n": 15,
+          "captured_n": 1,
+          "missed_n": 2,
+          "missed_cases": [
+            "LU-IND-018",
+            "LU-IND-021"
+          ]
+        },
+        {
+          "release": "REL-B Stroke boundary update",
+          "changed_n": 3,
+          "selected_n": 10,
+          "captured_n": 3,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-C Stroke reasoning update",
+          "changed_n": 2,
+          "selected_n": 6,
+          "captured_n": 2,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-D Lung interpretation/personalization",
+          "changed_n": 2,
+          "selected_n": 4,
+          "captured_n": 2,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-E Lung FEV1 personalization",
+          "changed_n": 1,
+          "selected_n": 1,
+          "captured_n": 1,
+          "missed_n": 0,
+          "missed_cases": []
+        }
+      ]
+    },
+    {
+      "omitted_dependency_links": 3,
+      "omitted": [
+        {
+          "artifact": "contract:lung:respiratory_rate",
+          "affected_cases": [
+            "LU-IND-018"
+          ]
+        },
+        {
+          "artifact": "contract:lung:spo2",
+          "affected_cases": [
+            "LU-IND-009",
+            "LU-IND-021"
+          ]
+        },
+        {
+          "artifact": "rule:lung:LU-S003",
+          "affected_cases": [
+            "LU-IND-009"
+          ]
+        }
+      ],
+      "changed_behavior_instances": 11,
+      "captured_instances": 8,
+      "missed_instances": 3,
+      "recall": 0.7273,
+      "mean_selected_tests": 7.0,
+      "per_release": [
+        {
+          "release": "REL-A Lung admission update",
+          "changed_n": 3,
+          "selected_n": 14,
+          "captured_n": 0,
+          "missed_n": 3,
+          "missed_cases": [
+            "LU-IND-009",
+            "LU-IND-018",
+            "LU-IND-021"
+          ]
+        },
+        {
+          "release": "REL-B Stroke boundary update",
+          "changed_n": 3,
+          "selected_n": 10,
+          "captured_n": 3,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-C Stroke reasoning update",
+          "changed_n": 2,
+          "selected_n": 6,
+          "captured_n": 2,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-D Lung interpretation/personalization",
+          "changed_n": 2,
+          "selected_n": 4,
+          "captured_n": 2,
+          "missed_n": 0,
+          "missed_cases": []
+        },
+        {
+          "release": "REL-E Lung FEV1 personalization",
+          "changed_n": 1,
+          "selected_n": 1,
+          "captured_n": 1,
+          "missed_n": 0,
+          "missed_cases": []
+        }
+      ]
+    }
+  ],
+  "interpretation": "Declared dependency closure is safe only under dependency completeness. Deliberately omitting dependency metadata creates false negatives; full regression remains the reference for detecting them."
+}

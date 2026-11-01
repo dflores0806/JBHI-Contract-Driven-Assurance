@@ -1,0 +1,5 @@
+{
+  "repository": "https://github.com/francisco-diaz-barrancas/LungTwinMentor",
+  "commit": "8b9e284fe4fd98ef5304b56316d393e62918709b",
+  "note": "The artifacts/ directory is bundled here to make the validation package self-contained. Internal artifact release IDs are implementation identifiers, not manuscript-version labels."
+}

@@ -1,0 +1,10 @@
+{
+  "n_original": 300,
+  "n_replayed": 300,
+  "relevant_output_discrepancies": 0,
+  "scope": [
+    "FEV1/FVC/PEF/baseline-FEV1 observation status/failures/state effect",
+    "LU-S001",
+    "FEV1 baseline personalization output"
+  ]
+}

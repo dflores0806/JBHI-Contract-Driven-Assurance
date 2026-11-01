@@ -1,0 +1,101 @@
+{
+  "paper_title": "Contract-Driven Assurance and Runtime Verification of Health Digital Twins",
+  "verification_date_utc": "2026-11-01",
+  "key_results": {
+    "cross_implementation": {
+      "n": 80,
+      "passed": 80,
+      "oracle_sha256": "acc0ffca5d1939de97672792e51f3bc187c716361b439b9a2393dce22e91fda5"
+    },
+    "rule_state_subset": {
+      "n": 37,
+      "confusion_matrix": [
+        [
+          23,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          13
+        ]
+      ]
+    },
+    "invariant_negative_controls": {
+      "baseline_records": 80,
+      "baseline_all_pass": true,
+      "negative_controls": 30,
+      "detected": 30,
+      "by_invariant": {
+        "I1": {
+          "n": 10,
+          "detected": 10
+        },
+        "I2": {
+          "n": 10,
+          "detected": 10
+        },
+        "I3": {
+          "n": 10,
+          "detected": 10
+        }
+      }
+    },
+    "personalization_metamorphic": {
+      "cases": 500,
+      "assertions": 2500,
+      "passed": 2500,
+      "failed": 0
+    },
+    "seeded_release_study": {
+      "candidate_releases": 5,
+      "seeded_artifact_changes": 11,
+      "total_observed_behavior_changes": 11,
+      "captured_behavior_changes": 11,
+      "mean_selected_tests": 7.6
+    },
+    "dependency_incompleteness_recall": [
+      1.0,
+      0.9091,
+      0.8182,
+      0.7273
+    ],
+    "nhanes": {
+      "baseline_n": 3945,
+      "fev1_accepted": 3855,
+      "fvc_accepted": 3804,
+      "pef_accepted": 3844,
+      "paired_n": 276,
+      "paired_numeric": 274,
+      "paired_within_0_001_pp": 274,
+      "lu_s001": {
+        "unknown": 3352,
+        "true": 593
+      },
+      "all_fev1_le_fvc": true,
+      "pef_max_l_min": 1141.44
+    }
+  },
+  "sha256": {
+    "data/oracle/oracle_locked.jsonl": "acc0ffca5d1939de97672792e51f3bc187c716361b439b9a2393dce22e91fda5",
+    "data/oracle/oracle_manifest.json": "279317c389e9e0fba03178b3d34f7ceaf57bc4660df11d68d14aa7ad02ec5d73",
+    "data/runs/system_outputs.jsonl": "799955343837223e40bc7b9525b4a3f27b4bbef0dd55cef05b5875d9674adc2a",
+    "data/runs/metrics.json": "0297b6ef32f7e3045b27c041869eaab08d7c3b89719e7deb59622415ba2b8c17",
+    "data/runs/invariant_negative_controls.json": "a8ede92c9925c4ce125f0688b44f6594da2c17b055b7d3d79f38053590900f38",
+    "data/runs/personalization_metamorphic.json": "831ba3643aa02f77373b19d0dcb83ab63d551229aa4a6004fbb5b69f64a37626",
+    "data/runs/release_evolution_study.json": "e7d10c6f4e615f4b7c6a832ce80d14ed52dbf575c2f77a31d5e914dbf058f6ca",
+    "data/runs/dependency_incompleteness_sensitivity.json": "d3222f19bf1ad7b25ef6f05157d5ce3203874f6cf304f6bc16ed2feb4f75cafd",
+    "data/external/runs/external_metrics.json": "afc13971a1f378d3dc15818dce1f0bf5cf4106a7bba899d58ae708a5ef83ff74",
+    "data/external/runs/nhanes_context_analysis.json": "8fe0c8eb9deebb461938133ae35280164a7257c52f15cf9970e7a3109db55024",
+    "data/external/lung/processed/manifest.json": "20ae7a260065e26c3874f5da3f90668be4296ff9bba952f548ae3d9216cf2f80",
+    "data/external/lung/processed/nhanes_high_quality_adult_baseline_all.csv": "24d79e6f25e4e021ffd87f01b2726e3cd993ff94441d32b7e0b2774c07d808c6",
+    "data/external/lung/processed/nhanes_high_quality_adult_pre_post_all.csv": "c4aa6875ebbcf2c7d2fd9e8a83777e414e4a75af252a055335119dc15aca3151",
+    "outputs/figures/nhanes_rejection_by_age.pdf": "a14d8f4fb5e9ea13710e0fd4f327dd386207bd7564744d9df13864d1d7b1e22a"
+  }
+}

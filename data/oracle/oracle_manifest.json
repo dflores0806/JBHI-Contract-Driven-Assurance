@@ -1,0 +1,9 @@
+{
+  "case_count": 80,
+  "generator_version": "1.0.0",
+  "oracle_file": "oracle_locked.jsonl",
+  "oracle_sha256": "acc0ffca5d1939de97672792e51f3bc187c716361b439b9a2393dce22e91fda5",
+  "sealed_utc": "2026-11-01T17:04:31.277934+00:00",
+  "statement": "Oracle frozen before target execution; editing invalidates this manifest hash.",
+  "study_id": "JBHI-CONTRACT-DRIVEN-ASSURANCE"
+}

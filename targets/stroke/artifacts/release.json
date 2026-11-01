@@ -1,0 +1,11 @@
+{
+  "release_id": "stroke-methodology-v1",
+  "artifact_version": "methodology-v1",
+  "status": "implemented_prototype_under_testing",
+  "generated_from": "uploaded repository source plus explicitly labeled methodology extensions",
+  "commit": "TO_FREEZE",
+  "contracts_version": "methodology-v1",
+  "knowledge_version": "methodology-v1",
+  "state_version": "methodology-v1",
+  "feedback_version": "methodology-v1"
+}

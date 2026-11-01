@@ -1,0 +1,1218 @@
+{
+  "catalogue_version": "methodology-v1",
+  "contracts": [
+    {
+      "id": "case_id",
+      "semantics": "Built-in stroke case identifier",
+      "encoding": {
+        "type": "string",
+        "pattern": "^STM-[0-9]{3}$"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "case_type",
+      "semantics": "Broad stroke scenario family",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "ischemic",
+          "hemorrhagic",
+          "tia",
+          "mimic"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "stroke_subtype",
+      "semantics": "Case subtype used by the prototype",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "ais_cardioembolic",
+          "ais_lacunar",
+          "ais_lvo",
+          "ich",
+          "mimic",
+          "posterior_bao",
+          "sah",
+          "tia"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "age_years",
+      "semantics": "Age of the fictional patient",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": "years",
+      "admissible_domain": {
+        "min": 18,
+        "max": null,
+        "basis": "randomizer enforces minimum only"
+      },
+      "source": {
+        "type": "case_database_randomized"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "980-986"
+      },
+      "implementation_gap": "No explicit upper admissible limit is encoded in the current prototype.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "sex",
+      "semantics": "Sex label used by the fictional case",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "Female",
+          "Male"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static"
+      },
+      "personalization": null,
+      "role": "context_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "last_known_well_min",
+      "semantics": "Minutes since onset/last-known-well used by the case",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": "min",
+      "admissible_domain": {
+        "min": 20,
+        "max": null,
+        "basis": "randomizer enforces minimum only"
+      },
+      "source": {
+        "type": "case_database_randomized"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static_time_context"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "980-982"
+      },
+      "implementation_gap": "No explicit upper temporal limit or expiry policy is encoded in the current prototype.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "nihss",
+      "semantics": "NIH Stroke Scale value displayed for the case",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0,
+        "max": null,
+        "basis": "randomizer enforces minimum only"
+      },
+      "source": {
+        "type": "case_database_randomized"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "941-967"
+      },
+      "implementation_gap": "The prototype classifies NIHSS severity but does not encode an upper admissible bound.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "blood_pressure",
+      "semantics": "Blood pressure text associated with the case",
+      "encoding": {
+        "type": "string",
+        "pattern": "^[0-9]{2,3}/[0-9]{2,3}$"
+      },
+      "unit": "mmHg",
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database_randomized"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "982-984"
+      },
+      "implementation_gap": "Stored as a formatted string; no explicit systolic/diastolic contract or admissible range exists.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "systolic_bp",
+      "semantics": "Systolic pressure parsed from blood_pressure for display severity",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": "mmHg",
+      "admissible_domain": null,
+      "source": {
+        "type": "derived_from_state"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "conditional",
+      "dependencies": [
+        "blood_pressure"
+      ],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "964-971"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "glucose",
+      "semantics": "Capillary glucose displayed for the case",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": "mg/dL",
+      "admissible_domain": {
+        "min": 0,
+        "max": null,
+        "basis": "case database contains 38 mg/dL; no explicit max"
+      },
+      "source": {
+        "type": "case_database_randomized"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "699-717,985"
+      },
+      "implementation_gap": "Randomizer clamps glucose to >=60 mg/dL, which conflicts with STM-010 static hypoglycemia value 38 mg/dL.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "spo2",
+      "semantics": "Peripheral oxygen saturation displayed for the case",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": "%",
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "case_static"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720"
+      },
+      "implementation_gap": "No explicit admissible range or quality policy is encoded.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "territory",
+      "semantics": "Suspected/represented vascular territory",
+      "encoding": {
+        "type": "string"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "perfusion_percent",
+      "semantics": "Prototype perfusion visualization metric",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": "%",
+      "admissible_domain": {
+        "min": 0,
+        "max": 100,
+        "basis": "rendered as percentage; case data within range"
+      },
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720,972-973"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "core_fraction",
+      "semantics": "Normalized prototype lesion-core visualization parameter",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0,
+        "max": 1,
+        "basis": "case database and visualization use normalized values"
+      },
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "penumbra_fraction",
+      "semantics": "Normalized prototype penumbra visualization parameter",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0,
+        "max": 1,
+        "basis": "case database and visualization use normalized values"
+      },
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "derived_state",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "imaging_revealed",
+      "semantics": "Whether neuroimaging has been requested/revealed",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "992-1014"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "imaging_ct",
+      "semantics": "Non-contrast CT narrative for the active case",
+      "encoding": {
+        "type": "string"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "conditional",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720,1004"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "imaging_aspects",
+      "semantics": "ASPECTS/PC-ASPECTS or not-applicable narrative",
+      "encoding": {
+        "type": "string"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "conditional",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720,1005"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "imaging_vascular",
+      "semantics": "CTA or vascular-MRI narrative",
+      "encoding": {
+        "type": "string"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "conditional",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720,1006"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "imaging_perfusion",
+      "semantics": "Perfusion/diffusion narrative",
+      "encoding": {
+        "type": "string"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "state_variable",
+      "requirement": "conditional",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720,1007"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "latest_acquisition_time_wins",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "learner_diagnosis",
+      "semantics": "Diagnosis selected by the learner",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "ais_lvo",
+          "ais_lacunar",
+          "ais_cardioembolic",
+          "posterior_bao",
+          "tia",
+          "ich",
+          "sah",
+          "mimic"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "341-350"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "learner_management",
+      "semantics": "Immediate management selected by the learner",
+      "encoding": {
+        "type": "categorical",
+        "allowed": [
+          "code_ct",
+          "ivt",
+          "ivt_evt",
+          "evt_transfer",
+          "dapt_monitor",
+          "ich_bundle",
+          "sah_bundle",
+          "mimic_workup",
+          "observe"
+        ]
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "352-363"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_ct",
+      "semantics": "Non-contrast CT selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "367"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_cta",
+      "semantics": "CTA/perfusion imaging selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "368"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_bp",
+      "semantics": "Systemic-control action selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "369"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_ecg",
+      "semantics": "ECG/telemetry action selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "370"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "action_neuro",
+      "semantics": "Urgent neurovascular/neurosurgery action selected",
+      "encoding": {
+        "type": "boolean"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "user_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_input",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "371"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "user_interaction"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "decision_time_seconds",
+      "semantics": "Elapsed decision time used for bonus scoring",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": "s",
+      "admissible_domain": {
+        "min": 0,
+        "max": 180,
+        "basis": "three-minute timer"
+      },
+      "source": {
+        "type": "runtime_timer"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "interaction_context",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "914-937,1056-1060"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived"
+        ],
+        "requires_acquisition_time": true,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "educational_classification",
+      "semantics": "Case-associated educational classification shown as AI model output",
+      "encoding": {
+        "type": "string"
+      },
+      "unit": null,
+      "admissible_domain": null,
+      "source": {
+        "type": "case_database"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "computational_output",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "469-720,1076-1077"
+      },
+      "implementation_gap": "Current prototype stores the classification in the case database; no predictive model execution is present in this repository.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "educational_confidence",
+      "semantics": "Case-associated confidence displayed with the educational classification",
+      "encoding": {
+        "type": "number"
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0.7,
+        "max": 0.97,
+        "basis": "runtime randomizer clamp"
+      },
+      "source": {
+        "type": "case_database_randomized"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "computational_output",
+      "requirement": "mandatory",
+      "dependencies": [],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "986,1076-1077"
+      },
+      "implementation_gap": "Confidence is randomized from a stored case value rather than produced by an inference model.",
+      "runtime": {
+        "allowed_sources": [
+          "case_database"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    },
+    {
+      "id": "decision_score",
+      "semantics": "Educational score after decision checking",
+      "encoding": {
+        "type": "integer"
+      },
+      "unit": null,
+      "admissible_domain": {
+        "min": 0,
+        "max": 100,
+        "basis": "explicit clamp in scoring code"
+      },
+      "source": {
+        "type": "derived_from_interaction"
+      },
+      "quality": {
+        "policy": "not_explicit_in_current_prototype"
+      },
+      "temporal": {
+        "behavior": "event_driven"
+      },
+      "personalization": null,
+      "role": "feedback_output",
+      "requirement": "mandatory",
+      "dependencies": [
+        "learner_diagnosis",
+        "learner_management",
+        "decision_time_seconds"
+      ],
+      "provenance": {
+        "file": "StrokeTwinMentor.html",
+        "lines": "1024-1061"
+      },
+      "runtime": {
+        "allowed_sources": [
+          "derived_from_interaction"
+        ],
+        "requires_acquisition_time": false,
+        "order_policy": "event_order",
+        "stale_after_ms": null,
+        "quality_required": false,
+        "methodology_extension": true
+      }
+    }
+  ]
+}

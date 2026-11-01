@@ -1,0 +1,5 @@
+{
+  "repository": "https://github.com/francisco-diaz-barrancas/StrokeTwinMentor",
+  "commit": "f5d1a040a3270310cdc2ebc8dd78765917859677",
+  "note": "The artifacts/ directory is bundled here to make the validation package self-contained. Internal artifact release IDs are implementation identifiers, not manuscript-version labels."
+}

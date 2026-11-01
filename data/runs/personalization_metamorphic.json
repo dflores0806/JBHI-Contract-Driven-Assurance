@@ -1,0 +1,14 @@
+{
+  "study": "personalization_metamorphic_noninterference",
+  "seed": 20261012,
+  "mechanisms": [
+    "spo2_delta",
+    "fev1_percent"
+  ],
+  "cases": 500,
+  "assertions": 2500,
+  "passed": 2500,
+  "failed": 0,
+  "per_mechanism": 250,
+  "failures": []
+}

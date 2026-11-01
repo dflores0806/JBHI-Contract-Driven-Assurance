@@ -1,0 +1,11 @@
+{
+  "version": "methodology-v1",
+  "classes": [
+    "informative",
+    "advisory",
+    "qualified",
+    "blocked"
+  ],
+  "hard_rule_policy": "A true hard rule marks the candidate management pathway as blocked while preserving explanatory feedback.",
+  "trace_required": true
+}

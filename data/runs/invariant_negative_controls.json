@@ -1,0 +1,264 @@
+{
+  "summary": {
+    "baseline_records": 80,
+    "baseline_all_pass": true,
+    "negative_controls": 30,
+    "detected": 30,
+    "by_invariant": {
+      "I1": {
+        "n": 10,
+        "detected": 10
+      },
+      "I2": {
+        "n": 10,
+        "detected": 10
+      },
+      "I3": {
+        "n": 10,
+        "detected": 10
+      }
+    }
+  },
+  "cases": [
+    {
+      "mutant_id": "I1-01",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-02",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-03",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-04",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-05",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-06",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-07",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-08",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-09",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I1-10",
+      "target": "I1",
+      "detected": true,
+      "I1": false,
+      "I2": true,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-01",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-02",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-03",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-04",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-05",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-06",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-07",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-08",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-09",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I2-10",
+      "target": "I2",
+      "detected": true,
+      "I1": true,
+      "I2": false,
+      "I3": true
+    },
+    {
+      "mutant_id": "I3-01",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-02",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-03",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-04",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-05",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-06",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-07",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-08",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-09",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    },
+    {
+      "mutant_id": "I3-10",
+      "target": "I3",
+      "detected": true,
+      "I1": true,
+      "I2": true,
+      "I3": false
+    }
+  ]
+}

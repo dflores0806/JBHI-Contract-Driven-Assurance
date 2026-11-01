@@ -1,0 +1,45 @@
+study_id: JBHI-CONTRACT-DRIVEN-ASSURANCE
+seed: 20261011
+
+n_cases_per_twin: 40
+case_mix_per_twin:
+  nominal: 16
+  boundary: 8
+  missing_evidence: 6
+  conflicting_evidence: 6
+  explicit_unknown: 4
+
+expected_targets:
+  stroke:
+    expected_release_id: stroke-methodology-v1
+    expected_contract_count: 31
+    expected_rule_count: 14
+    expected_runtime_sha256: 2b8d32bc159e9aca33c71dd55c5b25cdc70877afab1b93908ff55c876c8594c2
+    expected_embed_sha256: f609fcef44f946fa0030cd94d930615b248b288a433e4cbd6c6c6238425556b9
+  lung:
+    expected_release_id: lung-methodology-v1
+    expected_contract_count: 33
+    expected_rule_count: 16
+    expected_runtime_sha256: 2b8d32bc159e9aca33c71dd55c5b25cdc70877afab1b93908ff55c876c8594c2
+    expected_embed_sha256: 82deabd9d0f9d20d88373c25f97596fa56238e59903f039f1d0c7e84a1a8cf08
+
+external_validation:
+  lung_nhanes:
+    dataset: NHANES 2011-2012 Spirometry - Pre and Post-Bronchodilator (SPX_G)
+    baseline_sample_n: 0
+    paired_sample_n: 0
+    adult_min_age: 18
+    seed: 20261011
+    quality_grades: [A, B]
+    rationale: >-
+      Replay all eligible adult baseline records with A/B FEV1/FVC quality and all
+      eligible paired pre/post-bronchodilator records; no sampling is used.
+
+analysis:
+  primary_technical_endpoint: exact_scenario_agreement
+  claims_excluded:
+    - prospective_clinical_efficacy
+    - diagnostic_accuracy
+    - patient_safety
+    - regulatory_validation
+    - physical_iomt_scalability

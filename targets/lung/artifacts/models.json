@@ -1,0 +1,17 @@
+{
+  "version": "methodology-v1",
+  "models": [
+    {
+      "id": "LU-MODEL-EDU-001",
+      "type": "case_associated_educational_classification",
+      "is_predictive_inference": false,
+      "version": "methodology-v1",
+      "output_fields": [
+        "educational_classification",
+        "educational_confidence"
+      ],
+      "provenance": "CASE.aiClass and CASE.confidence in current source; no predictive inference model is executed",
+      "display_label": "Educational model"
+    }
+  ]
+}

@@ -1,0 +1,547 @@
+{
+  "knowledge_version": "methodology-v1",
+  "rules": [
+    {
+      "id": "LU-H001",
+      "type": "hard",
+      "category": "safety_constraint",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "learner_management",
+            "value": "observe"
+          },
+          {
+            "op": "neq",
+            "field": "expected_diagnosis",
+            "value": "normal"
+          }
+        ]
+      },
+      "consequence": {
+        "output_policy": "blocked",
+        "reason": "under_treatment_risk",
+        "tag": "Under-treatment risk"
+      },
+      "priority": 1,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_derived_extension",
+        "source": "LungTwinMentor.html",
+        "source_behavior": "existing under-treatment risk tag",
+        "methodology_change": "promoted to non-overridable management-pathway block"
+      },
+      "references": [
+        "learner_management",
+        "expected_diagnosis"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-H002",
+      "type": "hard",
+      "category": "safety_constraint",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "expected_diagnosis",
+            "value": "embolism"
+          },
+          {
+            "op": "eq",
+            "field": "learner_management",
+            "value": "antibiotics_oxygen"
+          }
+        ]
+      },
+      "consequence": {
+        "output_policy": "blocked",
+        "reason": "pe_pathway_missed",
+        "tag": "PE pathway missed"
+      },
+      "priority": 2,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_derived_extension",
+        "source": "LungTwinMentor.html",
+        "source_behavior": "existing -8 PE pathway missed safety penalty",
+        "methodology_change": "promoted to non-overridable management-pathway block"
+      },
+      "references": [
+        "expected_diagnosis",
+        "learner_management"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-H003",
+      "type": "hard",
+      "category": "safety_constraint",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "expected_diagnosis",
+            "value": "ards"
+          },
+          {
+            "op": "eq",
+            "field": "action_icu",
+            "value": false
+          }
+        ]
+      },
+      "consequence": {
+        "output_policy": "blocked",
+        "reason": "ards_without_escalation",
+        "tag": "Severe failure without escalation"
+      },
+      "priority": 3,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_derived_extension",
+        "source": "LungTwinMentor.html",
+        "source_behavior": "existing -8 severe failure without escalation penalty",
+        "methodology_change": "promoted to non-overridable management-pathway block"
+      },
+      "references": [
+        "expected_diagnosis",
+        "action_icu"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S001",
+      "type": "soft",
+      "category": "physiology_derived",
+      "condition": {
+        "op": "or",
+        "args": [
+          {
+            "op": "lt",
+            "field": "fev1_fvc_ratio",
+            "value": 0.7
+          },
+          {
+            "op": "gt",
+            "field": "airway_resistance",
+            "value": 65
+          },
+          {
+            "op": "lt",
+            "field": "peak_expiratory_flow",
+            "value": 300
+          }
+        ]
+      },
+      "consequence": {
+        "flag": "obstructive",
+        "value": true
+      },
+      "priority": 10,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "derived"
+      },
+      "references": [
+        "fev1_fvc_ratio",
+        "airway_resistance",
+        "peak_expiratory_flow"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S002",
+      "type": "soft",
+      "category": "physiology_derived",
+      "condition": {
+        "op": "or",
+        "args": [
+          {
+            "op": "lt",
+            "field": "fvc",
+            "value": 2.6
+          },
+          {
+            "op": "lt",
+            "field": "compliance",
+            "value": 35
+          }
+        ]
+      },
+      "consequence": {
+        "flag": "restrictive",
+        "value": true
+      },
+      "priority": 11,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "derived"
+      },
+      "references": [
+        "fvc",
+        "compliance"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S003",
+      "type": "soft",
+      "category": "physiology_derived",
+      "condition": {
+        "op": "or",
+        "args": [
+          {
+            "op": "lt",
+            "field": "spo2",
+            "value": 90
+          },
+          {
+            "op": "lt",
+            "field": "pao2",
+            "value": 60
+          }
+        ]
+      },
+      "consequence": {
+        "flag": "hypoxemia",
+        "value": true
+      },
+      "priority": 12,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "derived"
+      },
+      "references": [
+        "spo2",
+        "pao2"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S004",
+      "type": "soft",
+      "category": "physiology_derived",
+      "condition": {
+        "op": "gt",
+        "field": "paco2",
+        "value": 50
+      },
+      "consequence": {
+        "flag": "hypercapnia",
+        "value": true
+      },
+      "priority": 13,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "derived"
+      },
+      "references": [
+        "paco2"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S005",
+      "type": "soft",
+      "category": "physiology_derived",
+      "condition": {
+        "op": "or",
+        "args": [
+          {
+            "op": "lt",
+            "field": "vq_ratio",
+            "value": 0.55
+          },
+          {
+            "op": "gt",
+            "field": "vq_ratio",
+            "value": 1.6
+          }
+        ]
+      },
+      "consequence": {
+        "flag": "vq_mismatch",
+        "value": true
+      },
+      "priority": 14,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "derived"
+      },
+      "references": [
+        "vq_ratio"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S006",
+      "type": "soft",
+      "category": "pattern_interpretation",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "hypoxemia",
+            "value": true
+          },
+          {
+            "op": "eq",
+            "field": "restrictive",
+            "value": true
+          },
+          {
+            "op": "lt",
+            "field": "compliance",
+            "value": 25
+          }
+        ]
+      },
+      "consequence": {
+        "pattern": "Severe restrictive / ARDS-like pattern",
+        "severity": "danger",
+        "note": "low compliance with hypoxemia and shallow ventilation"
+      },
+      "priority": 1,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "updateInterpretation"
+      },
+      "references": [
+        "hypoxemia",
+        "restrictive",
+        "compliance"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S007",
+      "type": "soft",
+      "category": "pattern_interpretation",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "hypoxemia",
+            "value": true
+          },
+          {
+            "op": "eq",
+            "field": "vq_mismatch",
+            "value": true
+          }
+        ]
+      },
+      "consequence": {
+        "pattern": "V/Q mismatch with hypoxemia",
+        "severity": "danger",
+        "note": "ventilation/perfusion mismatch with low PaO2 or SpO2"
+      },
+      "priority": 2,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "updateInterpretation"
+      },
+      "references": [
+        "hypoxemia",
+        "vq_mismatch"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S008",
+      "type": "soft",
+      "category": "pattern_interpretation",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "eq",
+            "field": "obstructive",
+            "value": true
+          },
+          {
+            "op": "gt",
+            "field": "airway_resistance",
+            "value": 65
+          }
+        ]
+      },
+      "consequence": {
+        "pattern": "Obstructive pattern",
+        "severity": "warning",
+        "note": "reduced FEV1/FVC or high airway resistance"
+      },
+      "priority": 3,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "updateInterpretation"
+      },
+      "references": [
+        "obstructive",
+        "airway_resistance"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S009",
+      "type": "soft",
+      "category": "pattern_interpretation",
+      "condition": {
+        "op": "eq",
+        "field": "restrictive",
+        "value": true
+      },
+      "consequence": {
+        "pattern": "Restrictive pattern",
+        "severity": "warning",
+        "note": "reduced FVC/compliance and limited lung expansion"
+      },
+      "priority": 4,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "updateInterpretation"
+      },
+      "references": [
+        "restrictive"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S010",
+      "type": "soft",
+      "category": "explanation",
+      "condition": {
+        "op": "lt",
+        "field": "peak_expiratory_flow",
+        "value": 300
+      },
+      "consequence": {
+        "note": "low peak expiratory flow"
+      },
+      "priority": 20,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "updateInterpretation"
+      },
+      "references": [
+        "peak_expiratory_flow"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S011",
+      "type": "soft",
+      "category": "explanation",
+      "condition": {
+        "op": "gt",
+        "field": "vq_ratio",
+        "value": 1.6
+      },
+      "consequence": {
+        "note": "ventilated regions with poor perfusion"
+      },
+      "priority": 21,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "updateInterpretation"
+      },
+      "references": [
+        "vq_ratio"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S012",
+      "type": "soft",
+      "category": "explanation",
+      "condition": {
+        "op": "lt",
+        "field": "vq_ratio",
+        "value": 0.55
+      },
+      "consequence": {
+        "note": "perfused regions with poor ventilation"
+      },
+      "priority": 22,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "updateInterpretation"
+      },
+      "references": [
+        "vq_ratio"
+      ],
+      "unknown_applicable": true
+    },
+    {
+      "id": "LU-S013",
+      "type": "soft",
+      "category": "decision_feedback",
+      "condition": {
+        "op": "and",
+        "args": [
+          {
+            "op": "in",
+            "field": "expected_diagnosis",
+            "values": [
+              "asthma",
+              "copd"
+            ]
+          },
+          {
+            "op": "eq",
+            "field": "action_oxygen",
+            "value": false
+          }
+        ]
+      },
+      "consequence": {
+        "tag": "Oxygenation not assessed",
+        "tag_class": "warn"
+      },
+      "priority": 30,
+      "version": "methodology-v1",
+      "provenance": {
+        "type": "implementation_logic",
+        "source": "LungTwinMentor.html",
+        "function": "checkDecision"
+      },
+      "references": [
+        "expected_diagnosis",
+        "action_oxygen"
+      ],
+      "unknown_applicable": true
+    }
+  ]
+}

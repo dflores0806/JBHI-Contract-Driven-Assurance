@@ -1,0 +1,51 @@
+{
+  "study": "nhanes_context_stratification",
+  "eligible_n": 3945,
+  "age_bands": [
+    {
+      "age_band": "18-29",
+      "n": 990,
+      "fev1_rejected_n": 48,
+      "fev1_rejected_pct": 4.85,
+      "fvc_rejected_n": 60,
+      "fvc_rejected_pct": 6.06,
+      "pef_rejected_n": 35,
+      "pef_rejected_pct": 3.54
+    },
+    {
+      "age_band": "30-44",
+      "n": 1094,
+      "fev1_rejected_n": 38,
+      "fev1_rejected_pct": 3.47,
+      "fvc_rejected_n": 62,
+      "fvc_rejected_pct": 5.67,
+      "pef_rejected_n": 48,
+      "pef_rejected_pct": 4.39
+    },
+    {
+      "age_band": "45-59",
+      "n": 986,
+      "fev1_rejected_n": 3,
+      "fev1_rejected_pct": 0.3,
+      "fvc_rejected_n": 15,
+      "fvc_rejected_pct": 1.52,
+      "pef_rejected_n": 14,
+      "pef_rejected_pct": 1.42
+    },
+    {
+      "age_band": "60-79",
+      "n": 875,
+      "fev1_rejected_n": 1,
+      "fev1_rejected_pct": 0.11,
+      "fvc_rejected_n": 4,
+      "fvc_rejected_pct": 0.46,
+      "pef_rejected_n": 5,
+      "pef_rejected_pct": 0.57
+    }
+  ],
+  "fev1_le_fvc_all": true,
+  "fev1_gt_fvc_n": 0,
+  "pef_gt_1000_n": 1,
+  "pef_max_l_min": 1141.44,
+  "scope_note": "Descriptive secondary analysis; age is available in the prepared replay set. No causal or population-prevalence inference."
+}

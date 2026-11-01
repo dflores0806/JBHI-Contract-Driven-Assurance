@@ -1,0 +1,19 @@
+{
+  "adult_min_age": 18,
+  "baseline_sample_n": 3945,
+  "case_file": "data/external/lung/processed/lung_external_cases.jsonl",
+  "case_file_sha256": "6c3e66d36dea1e6c5a493a3e3a3f36784b1bde53ef4fa65f426122474be1d3ae",
+  "high_quality_adult_baseline_n": 3945,
+  "high_quality_adult_pre_post_n": 276,
+  "paired_sample_n": 276,
+  "quality_filter": "Adults >=18 years; baseline FEV1 and FVC quality A/B; paired analysis also requires post-bronchodilator FEV1/FVC quality A/B",
+  "seed": 20261011,
+  "source_files": {
+    "DEMO_G.XPT": "data/external/lung/raw/DEMO_G.XPT",
+    "SPX_G.XPT": "data/external/lung/raw/SPX_G.XPT"
+  },
+  "source_sha256": {
+    "DEMO_G.XPT": "eaf0525d1952626885af3e935415a1f66ad62c18698080e7354789c125af252d",
+    "SPX_G.XPT": "58177b07ad94a2c005b0c9494cddb82fc94ec8f5c6c13a91b83da035f20770d9"
+  }
+}

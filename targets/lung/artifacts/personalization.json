@@ -1,0 +1,29 @@
+{
+  "version": "methodology-v1",
+  "mechanisms": [
+    {
+      "id": "P-LUNG-SPO2-BASELINE",
+      "kind": "baseline_delta",
+      "value_field": "spo2",
+      "baseline_field": "baseline_spo2",
+      "output_field": "spo2_baseline_delta",
+      "output_semantics": "Numerical difference in percentage points; no clinical normality threshold is inferred.",
+      "provenance": {
+        "type": "methodology_extension",
+        "scope": "educational baseline comparison"
+      }
+    },
+    {
+      "id": "P-LUNG-FEV1-BASELINE",
+      "kind": "baseline_percent_change",
+      "value_field": "fev1",
+      "baseline_field": "baseline_fev1",
+      "output_field": "fev1_baseline_percent_change",
+      "output_semantics": "Percentage difference from personal baseline; no clinical severity threshold is inferred.",
+      "provenance": {
+        "type": "methodology_extension",
+        "scope": "educational baseline comparison"
+      }
+    }
+  ]
+}

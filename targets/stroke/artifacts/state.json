@@ -1,0 +1,14 @@
+{
+  "version": "methodology-v1",
+  "revision_policy": "Every committed accepted event or explicit UI state change increments a monotonically increasing session revision.",
+  "rejected_observation_policy": "Rejected observations are traced but do not modify active state.",
+  "order_policy": "For contract-ingested state/context observations, older acquisition times do not replace a newer active value.",
+  "origin_types": [
+    "observed",
+    "context",
+    "interaction",
+    "derived",
+    "computational",
+    "simulated"
+  ]
+}
